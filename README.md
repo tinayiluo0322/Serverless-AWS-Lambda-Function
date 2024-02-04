@@ -3,7 +3,6 @@
 # Serverless AWS Lambda Function
 
 ## Goal
-
 This project leveraged the power of serverless architecture to streamline data processing workflows. The solution employs an AWS Lambda function, meticulously crafted in the Rust programming language, utilizing Cargo Lambda for seamless deployment and management. 
 
 ## Overview 
@@ -12,10 +11,10 @@ This project is designed to offer a robust and scalable approach to handling dat
 ## Setup
 
 ### Rust Lambda 
-- Install Rust and Cargo Lambda: `brew install rust`, `brew tap cargo-lambda/cargo-lambda`, and `brew install cargo-lambda`
-- Check cargo lambda is successfully installed : `cargo lambda --version`
-- Create a new repo `new-lambda-project` on gitlab/github and clone it with HTTPS/SSH to local : `git clone <HTTPS/SSH>`
-- Go to one directory above the directory that `new-lambda-project` is located, set up Cargo Lambda project : `cargo lambda new new-lambda-project`
+- Install Rust and Cargo Lambda: `brew install rust`, `brew tap cargo-lambda/cargo-lambda`, and `brew install cargo-lambda`.
+- Check cargo lambda is successfully installed : `cargo lambda --version`.
+- Create a new repo `new-lambda-project` on gitlab/github and clone it with HTTPS/SSH to local : `git clone <HTTPS/SSH>`.
+- Go to one directory above the directory that `new-lambda-project` is located, set up Cargo Lambda project : `cargo lambda new new-lambda-project`.
 
 ### Data Processing
 At the heart of the project is the data processing capability. Written in Rust, the function concatinate two strings together into one string.
@@ -72,7 +71,7 @@ tracing-subscriber = { version = "0.3", default-features = false, features = ["e
 The core feature is the AWS Lambda function, which executes code in response to triggers without the need for provisioning or managing servers, offering scalability and efficiency.
 
 - Sign up for an AWS account.
-- Add an IAM User for credentials in AWS IAM web management console, .
+- Add an IAM User for credentials in AWS IAM web management console.
 - Attach policies `lambdafullaccess` and `iamfullaccess`.
 - Finish user creation, open user details, and go to security credentials.
 - Generate access key.
@@ -115,9 +114,9 @@ Test the lambda fucntion without using the api gateway like so:
 `cargo lambda invoke --remote <name of lambda function>`
 
 ## CI/CD Workflow
-- After confirming the api gateway and lambda functions work, add AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_REGION to gitlab/github secrets 
+- After confirming the api gateway and lambda functions work, add AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_REGION to gitlab/github secrets.
 - The workflow includes running a `Makefile` to perform tasks such as installation (make install), testing (make test), code formatting (make format), linting (make lint), and an all-inclusive task (make all) using Github/Gitlab Actions. This automation streamlines the data processing and transformation process and enhances code quality.
-- Use `.gitlab-ci.yml` to enable auto build, test, and deploy of the lambda function every time the repo is pushed 
+- Use `.gitlab-ci.yml` to enable auto build, test, and deploy of the lambda function every time the repo is pushed.
 
 ## Usage 
 The user could invoke the Lambda function by calling make aws-invoke (with the appropriate credentials) or send a request through the API Gateway.
